@@ -1,0 +1,15 @@
+site_name: Lyncis Security Platform
+site_description: Documentation for the Lyncis Security Auditing Platform
+repo_url: https://github.com/marcelhaerlre/lyncis-docs
+
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: cyan
+    accent: light blue
+
+nav:
+  - Overview: index.md
+  - Deployment & Setup: deployment.md
+  - Architecture Blueprint: blueprint.md
