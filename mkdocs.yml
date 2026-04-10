@@ -12,4 +12,3 @@ theme:
 nav:
   - Overview: index.md
   - Deployment & Setup: deployment.md
-  - Architecture Blueprint: blueprint.md
