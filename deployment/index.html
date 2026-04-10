@@ -1,0 +1,855 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the Lyncis Security Auditing Platform">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Deployment & Setup - Lyncis Security Platform</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#deployment-setup-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Lyncis Security Platform" class="md-header__button md-logo" aria-label="Lyncis Security Platform" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Lyncis Security Platform
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Deployment & Setup
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/marcelhaerlre/lyncis-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Lyncis Security Platform" class="md-nav__button md-logo" aria-label="Lyncis Security Platform" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Lyncis Security Platform
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/marcelhaerlre/lyncis-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment & Setup
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment & Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#deploying-the-backend-stack-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deploying the Backend Stack (Docker Compose)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deploying the Backend Stack (Docker Compose)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create Directory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-docker-compose-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create Docker Compose Stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-compose-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Start Compose Stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-web-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Web UI
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploying-the-lyncis-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deploying the Lyncis Agent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deploying the Lyncis Agent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites-on-target-host" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites on Target Host
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation Steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#binary-download" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Binary Download
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-it-executable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Make it executable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-config-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create Config Directory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-systemd-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create Systemd Service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-and-start-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable and Start Service
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#deploying-the-backend-stack-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deploying the Backend Stack (Docker Compose)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deploying the Backend Stack (Docker Compose)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create Directory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-docker-compose-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create Docker Compose Stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-compose-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Start Compose Stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-web-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Web UI
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploying-the-lyncis-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deploying the Lyncis Agent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deploying the Lyncis Agent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites-on-target-host" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites on Target Host
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation Steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#binary-download" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Binary Download
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-it-executable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Make it executable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-config-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create Config Directory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-systemd-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create Systemd Service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-and-start-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable and Start Service
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="deployment-setup-guide">Deployment &amp; Setup Guide</h1>
+<p>Lyncis is built to be deployed on-premise. The backend infrastructure is fully containerized, while the agent runs as
+a native binary on your target hosts.</p>
+<h2 id="deploying-the-backend-stack-docker-compose">Deploying the Backend Stack (Docker Compose)</h2>
+<p>The backend requires the Go API server and a PostgreSQL database. We use a single <code>docker-compose.yml</code> to spin up the
+entire management plane.</p>
+<h3 id="create-directory">Create Directory</h3>
+<p>Create a directory on your host server (e.g., <code>/opt/lyncis</code>).</p>
+<h3 id="create-docker-compose-stack">Create Docker Compose Stack</h3>
+<p>Create a <code>docker-compose.yml</code> file with the following content:</p>
+<pre><code class="language-yaml">services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: lyncis-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: lyncis
+      POSTGRES_PASSWORD: ChangeThisSecurePassword!
+      POSTGRES_DB: lyncis
+    volumes:
+      - lyncis_db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [&quot;CMD-SHELL&quot;, &quot;pg_isready -U lyncis -d lyncis&quot;]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    image: haerlemarcel/lyncis-backend:latest
+    container_name: lyncis-backend
+    restart: unless-stopped
+    ports:
+      - &quot;8000:8000&quot;
+    environment:
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_USER=lyncis
+      - DB_PASSWORD=ChangeThisSecurePassword!
+      - DB_NAME=lyncis
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  ui:
+    image: haerlemarcel/lyncis-ui:latest
+    container_name: lyncis-ui
+    restart: unless-stopped
+    ports:
+      - &quot;80:80&quot;
+    environment:
+      - LYNCIS_API_BASE_URL=http://&lt;YOUR_SERVER_IP&gt;:8000/api/v1/ui
+
+volumes:
+  lyncis_db_data:
+</code></pre>
+<h3 id="start-compose-stack">Start Compose Stack</h3>
+<p>Run <code>docker compose up -d</code> to start the stack.</p>
+<h3 id="access-web-ui">Access Web UI</h3>
+<p>Access the UI via http://<YOUR_SERVER_IP>.</p>
+<h2 id="deploying-the-lyncis-agent">Deploying the Lyncis Agent</h2>
+<p>The agent is a statically compiled Go binary, meaning it requires no dependencies other than the <code>lynis</code> tool itself.</p>
+<h3 id="prerequisites-on-target-host">Prerequisites on Target Host</h3>
+<p>Ensure <code>lynis</code> is installed on the machine you want to monitor:</p>
+<pre><code class="language-bash">sudo apt-get update
+sudo apt-get install lynis
+</code></pre>
+<h3 id="installation-steps">Installation Steps</h3>
+<h4 id="binary-download">Binary Download</h4>
+<p>Download the latest <code>lyncis-agent</code> binary to the target host.</p>
+<pre><code class="language-bash">wwget https://github.com/marcelhaerle/lyncis-agent/releases/latest/download/lyncis-agent-linux-amd64
+</code></pre>
+<h4 id="make-it-executable">Make it executable</h4>
+<pre><code class="language-bash">chmod +x lyncis-agent
+sudo mv lyncis-agent /usr/local/bin/
+</code></pre>
+<h4 id="create-config-directory">Create Config Directory</h4>
+<p>The agent requires configuration to know where the central backend is located. By default, it looks for its
+configuration file at <code>/etc/lyncis/config.json</code>.</p>
+<pre><code class="language-bash">sudo mkdir -p /etc/lyncis
+</code></pre>
+<h4 id="create-systemd-service">Create Systemd Service</h4>
+<p>To keep the agent running continuously and start it on boot, set it up as a systemd service.</p>
+<p>Create a service file at <code>/etc/systemd/system/lyncis-agent.service</code>:</p>
+<pre><code class="language-ini">[Unit]
+Description=Lyncis Security Agent
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/lyncis-agent
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=lyncis-agent
+Environment=LYNCIS_BACKEND_URL=&lt;YOUR_BACKEND_URL&gt;
+Environment=LYNCIS_CONFIG_PATH=/etc/lyncis/config.json
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<h4 id="enable-and-start-service">Enable and Start Service</h4>
+<pre><code class="language-bash">sudo systemctl daemon-reload
+sudo systemctl enable lyncis-agent
+sudo systemctl start lyncis-agent
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
